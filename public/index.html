@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/bootstrap.min.css" />
+    <script src="%PUBLIC_URL%/js/myscript.js"></script>
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/my_v1.css" />
+    <script src="%PUBLIC_URL%/js/jquery-1.10.2.min.js"></script>
+    <script src="%PUBLIC_URL%/js/bootstrap.min.js"></script>
+    <script src="%PUBLIC_URL%/select2/select2.full.min.js"></script>
+    <link rel="stylesheet" href="%PUBLIC_URL%/select2/select2.min.css" />
+    <script src="%PUBLIC_URL%/js/datetimepicker/jquery.inputmask.bundle.js"></script>
+    <link
+      rel="stylesheet"
+      href="%PUBLIC_URL%/css/bootstrap-datepicker.min.css"
+    />
+    <script src="%PUBLIC_URL%/js/datetimepicker/bootstrap-datepicker.min.js"></script>
+    <link
+      href="%PUBLIC_URL%/js/datetimepicker/bootstrap-datetimepicker.min.css"
+      rel="stylesheet"
+    />
+    <script src="%PUBLIC_URL%/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".my_select2").select2({
+          placeholder: "Chọn",
+          allowClear: true,
+          closeOnSelect: true,
+        });
+
+        //textarea[data-autoresize]
+        $("textarea")
+          .each(function () {
+            this.setAttribute(
+              "style",
+              "height:" + this.scrollHeight + "px;overflow-y:hidden;"
+            );
+          })
+          .on("input", function () {
+            this.style.height = "auto";
+            this.style.height = this.scrollHeight + "px";
+          });
+
+        jQuery.each(jQuery("textarea[data-autoresize]"), function () {
+          var offset = this.offsetHeight - this.clientHeight;
+          var resizeTextarea = function (el) {
+            jQuery(el)
+              .css("height", "auto")
+              .css("height", el.scrollHeight + offset);
+          };
+        });
+        //End textarea[data-autoresize]
+
+        //clearable-input
+        Array.prototype.forEach.call(
+          document.querySelectorAll(".clearable-input>[data-clear-input]"),
+          function (el) {
+            el.addEventListener("click", function (e) {
+              e.target.previousElementSibling.value = "";
+              e.target.previousElementSibling.focus();
+            });
+          }
+        );
+        //end clearable-input
+
+        $(".inputmask").inputmask("dd/mm/yyyy", {
+          yearrange: { minyear: 1900, maxyear: 5000 },
+        });
+
+        $(".date").inputmask("dd/mm/yyyy", {
+          yearrange: { minyear: 1900, maxyear: 5000 },
+        });
+
+        $.fn.datepicker.dates["vi"] = {
+          days: [
+            "Chủ nhật",
+            "Thứ hai",
+            "Thứ ba",
+            "Thứ tư",
+            "Thứ năm",
+            "Thứ sáu",
+            "Thứ bảy",
+          ],
+          daysShort: [
+            "CN",
+            "Thứ 2",
+            "Thứ 3",
+            "Thứ 4",
+            "Thứ 5",
+            "Thứ 6",
+            "Thứ 7",
+          ],
+          daysMin: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+          months: [
+            "Tháng 1",
+            "Tháng 2",
+            "Tháng 3",
+            "Tháng 4",
+            "Tháng 5",
+            "Tháng 6",
+            "Tháng 7",
+            "Tháng 8",
+            "Tháng 9",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12",
+          ],
+          monthsShort: [
+            "Th1",
+            "Th2",
+            "Th3",
+            "Th4",
+            "Th5",
+            "Th6",
+            "Th7",
+            "Th8",
+            "Th9",
+            "Th10",
+            "Th11",
+            "Th12",
+          ],
+          today: "Hôm nay",
+          clear: "Xóa",
+          format: "dd/mm/yyyy",
+        };
+
+        $.fn.datetimepicker.dates["vi"] = {
+          days: [
+            "Chủ Nhật",
+            "Thứ Hai",
+            "Thứ Ba",
+            "Thứ Tư",
+            "Thứ Năm",
+            "Thứ Sáu",
+            "Thứ Bảy",
+            "Chủ Nhật",
+          ],
+          daysShort: ["CN", "T2", "T3", "T4", "T5", "T6", "T7", "CN"],
+          daysMin: ["CN", "T2", "T3", "T4", "T5", "T6", "T7", "CN"],
+          months: [
+            "Tháng Một",
+            "Tháng Hai",
+            "Tháng Ba",
+            "Tháng Tư",
+            "Tháng Năm",
+            "Tháng Sáu",
+            "Tháng Bảy",
+            "Tháng Tám",
+            "Tháng Chín",
+            "Tháng Mười",
+            "Tháng Mười Một",
+            "Tháng Mười Hai",
+          ],
+          monthsShort: [
+            "Th.1",
+            "Th.2",
+            "Th.3",
+            "Th.4",
+            "Th.5",
+            "Th.6",
+            "Th.7",
+            "Th.8",
+            "Th.9",
+            "Th.10",
+            "Th.11",
+            "Th.12",
+          ],
+          today: "Hôm Nay",
+          suffix: [],
+          meridiem: ["Sáng", "Chiều"],
+          weekStart: 1,
+          format: "dd/mm/yyyy hh:ii",
+        };
+
+        $(".datetime").datetimepicker({
+          format: "dd/mm/yyyy hh:ii",
+          startDate: "01/01/2020 00:00",
+          autoclose: true,
+          todayHighlight: true,
+          todayBtn: "linked",
+          language: "vi",
+          locale: "vi",
+        });
+
+       
+      });
+    </script>
+   
+     <style>
+      .table-fix{
+  height:320px;  
+  overflow:scroll;
+}
+.table-fix thead tr:nth-child(1) th{
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .table-fix thead tr:nth-child(1) th{
+   margin: 0;
+   padding: 2px;
+   text-align: center;
+  }
+
+  .table-fix tbody tr td{
+   margin: 0;
+   padding: 0;
+   padding-left: 2px;
+   padding-right: 2px;
+   vertical-align: middle;
+  }
+
+.noscrollY::-webkit-scrollbar {
+    display: none;
+}
+
+.noscrollY{
+  -ms-overflow-style: none;
+}
+
+.nav-link {
+  color: black !important;
+  /* text-transform: uppercase; */
+}
+.nav-link.active {
+  background-color: #efefef !important;
+  color: blue !important;
+}
+
+.nav-link:hover {
+  background-color: #efefef !important;
+  color: blue !important;
+}
+
+
+   
+  </style>
+    <title>SIP/VOIP</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
