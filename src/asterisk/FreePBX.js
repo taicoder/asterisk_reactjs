@@ -126,10 +126,10 @@ export default function FreePBX() {
         <table align="center">
           <tr>
             <td align="center" style={{ padding: "30px", fontSize: "25px" }}>
-              <strong>NHÓM 7 DEMO SIP/VOIP</strong>
+              <strong>NHÓM 17 DEMO SIP/VOIP</strong>
             </td>
           </tr>
-          <tr>
+          {/* <tr>
             <td align="center">
               <TextField
                 autoFocus
@@ -169,7 +169,7 @@ export default function FreePBX() {
                 Đăng ký tài khoản sip
               </Button>
             </td>
-          </tr>
+          </tr> */}
         </table>
         Số người dùng: {users.length}
         <table class="table table-bordered border-primary">
@@ -180,7 +180,7 @@ export default function FreePBX() {
               <td>Trạng thái</td>
               <td>Nhắn tin</td>
               <td>Gọi</td>
-              <td></td>
+              {/* <td></td> */}
             </tr>
           </thead>
           <tbody>
@@ -234,7 +234,7 @@ export default function FreePBX() {
                     </IconButton>
                   </td>
 
-                  <td>
+                  {/* <td>
                     <a
                       class="text-danger"
                       href="#"
@@ -244,7 +244,7 @@ export default function FreePBX() {
                     >
                       Xóa
                     </a>
-                  </td>
+                  </td> */}
                 </tr>
               );
             })}
